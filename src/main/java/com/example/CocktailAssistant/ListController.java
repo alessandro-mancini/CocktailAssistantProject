@@ -1,13 +1,12 @@
-package com.example.demo1;
+package com.example.CocktailAssistant;
 
-import javafx.beans.value.ObservableStringValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import okhttp3.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class ListController {
@@ -15,14 +14,24 @@ public class ListController {
 
     @FXML
     private ListView listView;
+    @FXML
+    private TextField field;
     ArrayList<Drink> drinks = new ArrayList<Drink>();
 
-    public void searchByName(String name){
+    @FXML
+    public void initialize(){
+        drinks = DrinkSerializator.serializeDrinks(sendRequest("list","c","list"));
+        viewDrinks(drinks);
+    }
+
+    public void updateList(){
+        String name = field.getText();
         System.out.println("name " + name);
         drinks = DrinkSerializator.serializeDrinks(sendRequest("search","s",name));
+        viewDrinks(drinks);
+    }
 
-
-
+    private void viewDrinks(ArrayList<Drink> drinks){
         if(drinks != null){
             ObservableList<Drink> items = FXCollections.observableArrayList(drinks);
             listView.setItems(items);
@@ -30,9 +39,9 @@ public class ListController {
             ObservableList<String> items = FXCollections.observableArrayList("Nessun Risultato!");
             listView.setItems(items);
         }
-
-
     }
+
+
 
     private ArrayList<String> createTestList(){
 
@@ -54,16 +63,30 @@ public class ListController {
 
         OkHttpClient client = new OkHttpClient();
 
-         HttpUrl url = new HttpUrl.Builder()
-            .scheme("https")
-            .host("www.thecocktaildb.com")
-            .addPathSegment("api")
-            .addPathSegment("json")
-            .addPathSegment("v1")
-            .addPathSegment("1")
-            .addPathSegment(action + ".php")
-            .addQueryParameter(param, value)
-            .build();
+        HttpUrl url;
+        if(param == null){
+            url = new HttpUrl.Builder()
+                    .scheme("https")
+                    .host("www.thecocktaildb.com")
+                    .addPathSegment("api")
+                    .addPathSegment("json")
+                    .addPathSegment("v1")
+                    .addPathSegment("1")
+                    .addPathSegment(action + ".php")
+                    .build();
+        }else{
+            url = new HttpUrl.Builder()
+                    .scheme("https")
+                    .host("www.thecocktaildb.com")
+                    .addPathSegment("api")
+                    .addPathSegment("json")
+                    .addPathSegment("v1")
+                    .addPathSegment("1")
+                    .addPathSegment(action + ".php")
+                    .addQueryParameter(param, value)
+                    .build();
+        }
+
 
             // Costruisce la richiesta HTTP GET
             Request request = new Request.Builder()
