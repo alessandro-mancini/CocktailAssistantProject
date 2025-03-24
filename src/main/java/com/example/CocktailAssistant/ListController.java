@@ -1,21 +1,19 @@
 package com.example.CocktailAssistant;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import okhttp3.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import static com.example.CocktailAssistant.JSonReader.sendRequest;
 
 public class ListController {
 
@@ -28,22 +26,33 @@ public class ListController {
 
     @FXML
     public void initialize(){
-        for(int i = 0; i < 26; i++){
-            String letter = String.valueOf((char) (i + 97));
-            ArrayList<Drink> tempList = DrinkSerializator.serializeDrinks(sendRequest("search","f",letter));
-            if(tempList != null){
-                drinks.addAll(tempList);
-            }
-            viewDrinks(drinks);
-        }
+        for(int i = 0; i < 26; i++) {
 
+            final int index = i;
+
+            new Thread(() -> {
+                String letter = String.valueOf((char) (index + 97));
+                ArrayList<Drink> tempList = DrinkSerializator.serializeDrinks(sendRequest("search", "f", letter));
+
+                if (tempList != null) {
+                    Platform.runLater(() -> {
+                        drinks.addAll(tempList);
+                        viewDrinks(drinks);
+                    });
+                }
+            }).start();
+        }
     }
 
+    @FXML
     public void updateList(){
         String name = field.getText();
-        System.out.println("name " + name);
-        drinks = DrinkSerializator.serializeDrinks(sendRequest("search","s",name));
-        viewDrinks(drinks);
+        if(!name.equals("")){
+            drinks = DrinkSerializator.serializeDrinks(sendRequest("search","s",name));
+            viewDrinks(drinks);
+        }else{
+            initialize();
+        }
     }
 
     private void viewDrinks(ArrayList<Drink> drinks){
@@ -64,7 +73,7 @@ public class ListController {
         if (drink != null) {  // Assicurati che un drink sia selezionato
             try {
                 // Carica la scena e il controller del nuovo FXML
-                FXMLLoader loader = new FXMLLoader(CocktailAssistantApp.class.getResource("drink-view.fxml"));
+                FXMLLoader loader = new FXMLLoader(CocktailAssistantApp.class.getResource("drink.fxml"));
                 Scene scene = new Scene(loader.load());
 
                 // Ottieni il controller del nuovo FXML
@@ -91,51 +100,16 @@ public class ListController {
     }
 
 
-
-    private String sendRequest(String action, String param, String value){
-
-        OkHttpClient client = new OkHttpClient();
-
-        HttpUrl url;
-        if(param == null){
-            url = new HttpUrl.Builder()
-                    .scheme("https")
-                    .host("www.thecocktaildb.com")
-                    .addPathSegment("api")
-                    .addPathSegment("json")
-                    .addPathSegment("v1")
-                    .addPathSegment("1")
-                    .addPathSegment(action + ".php")
-                    .build();
-        }else{
-            url = new HttpUrl.Builder()
-                    .scheme("https")
-                    .host("www.thecocktaildb.com")
-                    .addPathSegment("api")
-                    .addPathSegment("json")
-                    .addPathSegment("v1")
-                    .addPathSegment("1")
-                    .addPathSegment(action + ".php")
-                    .addQueryParameter(param, value)
-                    .build();
+    public void showInfo(Drink drink){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(CocktailAssistantApp.class.getResource("drink.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) listView.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
         }
-
-
-            // Costruisce la richiesta HTTP GET
-            Request request = new Request.Builder()
-            .url(url)
-            .build();
-
-
-        try {
-            System.out.println(url.toString());
-            Response response = client.newCall(request).execute();
-            assert response.body() != null;
-            return response.body().string();
-        } catch (Exception e) {
-            return null;
-        }
-
     }
 
 }

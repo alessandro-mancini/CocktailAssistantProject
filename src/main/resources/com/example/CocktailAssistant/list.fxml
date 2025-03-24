@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.CocktailAssistant.ListController">
+
+   <ListView fx:id="listView" layoutX="209.0" layoutY="48.0" prefHeight="320.0" prefWidth="391.0" />
+   <TextField fx:id="field" layoutX="437.0" layoutY="14.0" onAction="#updateList" promptText="Cerca Drink" />
+   <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Random" />
+   <Button fx:id="homeButton" layoutX="91.0" layoutY="14.0" mnemonicParsing="false" text="Categories" />
+   <Button layoutX="180.0" layoutY="14.0" mnemonicParsing="false" text="Filter" />
+   <ImageView fitHeight="27.0" fitWidth="24.0" layoutX="403.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+
+
+   <ScrollPane fx:id="chatArea" layoutX="1.0" layoutY="48.0" prefHeight="295.0" prefWidth="209.0">
+      <TextArea fx:id="chatTextArea" editable="false" prefHeight="311.0" prefWidth="192.0" wrapText="true" />
+   </ScrollPane>
+
+
+   <TextField fx:id="inputField" layoutX="1.0" layoutY="343.0" prefHeight="25.0" prefWidth="209.0" promptText="Chatta con Gemini AI..." />
+
+
+   <ScrollPane fitToWidth="true" hbarPolicy="ALWAYS" layoutY="368.0" prefHeight="27.0" prefWidth="600.0">
+      <HBox layoutX="-1.0" layoutY="373.0" prefHeight="38.0" prefWidth="657.0">
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="A" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="B" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="C" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="D" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="E" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="F" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="G" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="H" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="I" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="J" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="K" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="L" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="M" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="N" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="O" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="P" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Q" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="R" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="S" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="T" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="U" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="V" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="W" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="X" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Y" wrapText="true" />
+         <Button style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Z" wrapText="true" />
+      </HBox>
+   </ScrollPane>
+
+
+</AnchorPane>
