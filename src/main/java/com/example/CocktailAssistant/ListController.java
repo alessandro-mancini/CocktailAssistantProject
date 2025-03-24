@@ -2,11 +2,19 @@ package com.example.CocktailAssistant;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import okhttp3.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ListController {
@@ -16,12 +24,19 @@ public class ListController {
     private ListView listView;
     @FXML
     private TextField field;
-    ArrayList<Drink> drinks = new ArrayList<Drink>();
+    private ArrayList<Drink> drinks = new ArrayList<Drink>();
 
     @FXML
     public void initialize(){
-        drinks = DrinkSerializator.serializeDrinks(sendRequest("list","c","list"));
-        viewDrinks(drinks);
+        for(int i = 0; i < 26; i++){
+            String letter = String.valueOf((char) (i + 97));
+            ArrayList<Drink> tempList = DrinkSerializator.serializeDrinks(sendRequest("search","f",letter));
+            if(tempList != null){
+                drinks.addAll(tempList);
+            }
+            viewDrinks(drinks);
+        }
+
     }
 
     public void updateList(){
@@ -39,24 +54,42 @@ public class ListController {
             ObservableList<String> items = FXCollections.observableArrayList("Nessun Risultato!");
             listView.setItems(items);
         }
+
     }
 
+    private void chooseDrink() {
+        // Ottieni l'oggetto Drink selezionato
+        Drink drink = (Drink) listView.getSelectionModel().getSelectedItem();
 
+        if (drink != null) {  // Assicurati che un drink sia selezionato
+            try {
+                // Carica la scena e il controller del nuovo FXML
+                FXMLLoader loader = new FXMLLoader(CocktailAssistantApp.class.getResource("drink-view.fxml"));
+                Scene scene = new Scene(loader.load());
 
-    private ArrayList<String> createTestList(){
+                // Ottieni il controller del nuovo FXML
+                DrinkController controller = loader.getController();
 
-        ArrayList<String> list = new ArrayList<>();
+                // Passa il drink al metodo showInfo del controller
+                controller.showInfo(drink);
 
-        for(int i=0; i<10; i++){
-            list.add("rita");
-            list.add("margarita");
-            list.add("marga");
-            list.add("vespasiano");
-            list.add("oporcoddio");
+                // Crea un nuovo Stage per la finestra extra
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.setTitle("Dettagli del Drink");
+
+                // Mostra la nuova finestra
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        } else {
+            System.out.println("Nessun drink selezionato!");
         }
-
-        return list;
     }
+
 
 
     private String sendRequest(String action, String param, String value){
@@ -95,6 +128,7 @@ public class ListController {
 
 
         try {
+            System.out.println(url.toString());
             Response response = client.newCall(request).execute();
             assert response.body() != null;
             return response.body().string();

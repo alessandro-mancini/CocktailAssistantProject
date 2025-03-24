@@ -9,22 +9,25 @@ import java.util.ArrayList;
 public class DrinkSerializator {
 
     public static ArrayList<Drink> serializeDrinks(String jsonResponse) {
+        ArrayList<Drink> drinksList = new ArrayList<>();
         try {
             JsonObject jsonObject = JsonParser.parseString(jsonResponse).getAsJsonObject();
 
-            if (jsonObject.has("drinks")) {
+            if (jsonObject.has("drinks") && !jsonObject.get("drinks").isJsonNull()) {
                 JsonArray drinksArray = jsonObject.getAsJsonArray("drinks");
-                ArrayList<Drink> drinksList = new ArrayList<>();
+
                 for (JsonElement drinkElement : drinksArray) {
                     Drink drink = new Gson().fromJson(drinkElement, Drink.class);
                     drinksList.add(drink);
                 }
-                return drinksList;
             }
-        } catch (JsonSyntaxException e) {
-            System.out.println("Errore nel parsing del JSON: " + e.getMessage());
+
+        }catch (Exception e) {
+            e.printStackTrace();
         }
-        return null;
+
+
+        return drinksList;
     }
 
 

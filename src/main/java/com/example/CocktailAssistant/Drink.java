@@ -11,25 +11,31 @@ public class Drink {
 
     @SerializedName("strCategory")
     private String strCategory;
+    @SerializedName("strAlcoholic")
+    private String strAlcoholic;
 
-    @SerializedName("strInstructions")
+    @SerializedName("strInstructionsIT")
     private String strInstructions;
 
     // Getters and toString method for debugging
-    public String getIdDrink() {
+    public String getId() {
         return idDrink;
     }
 
-    public String getStrDrink() {
+    public String getName() {
         return strDrink;
     }
 
-    public String getStrCategory() {
+    public String getCategory() {
         return strCategory;
     }
 
-    public String getStrInstructions() {
+    public String getInstructions() {
         return strInstructions;
+    }
+
+    public boolean isAlcoholic(){
+        return strAlcoholic.equals("Alcoholic");
     }
 
     @Override
