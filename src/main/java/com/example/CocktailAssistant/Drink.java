@@ -17,6 +17,9 @@ public class Drink {
     @SerializedName("strInstructionsIT")
     private String strInstructions;
 
+    @SerializedName("strDrinkThumb")
+    private String imageURL;
+
     // Getters and toString method for debugging
     public String getId() {
         return idDrink;
@@ -36,6 +39,10 @@ public class Drink {
 
     public boolean isAlcoholic(){
         return strAlcoholic.equals("Alcoholic");
+    }
+
+    public String getImageURL() {
+        return imageURL;
     }
 
     @Override

@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -66,11 +67,12 @@ public class ListController {
 
     }
 
+    @FXML
     private void chooseDrink() {
         // Ottieni l'oggetto Drink selezionato
         Drink drink = (Drink) listView.getSelectionModel().getSelectedItem();
 
-        if (drink != null) {  // Assicurati che un drink sia selezionato
+        if (drink != null) {
             try {
                 // Carica la scena e il controller del nuovo FXML
                 FXMLLoader loader = new FXMLLoader(CocktailAssistantApp.class.getResource("drink.fxml"));
@@ -85,7 +87,8 @@ public class ListController {
                 // Crea un nuovo Stage per la finestra extra
                 Stage stage = new Stage();
                 stage.setScene(scene);
-                stage.setTitle("Dettagli del Drink");
+                stage.setTitle("Dettagli " + drink.getName());
+                stage.getIcons().add(new Image("https://c1.tablecdn.com/pa/the-cocktail-db-api.jpg"));
 
                 // Mostra la nuova finestra
                 stage.show();
@@ -94,22 +97,6 @@ public class ListController {
                 e.printStackTrace();
                 throw new RuntimeException(e);
             }
-        } else {
-            System.out.println("Nessun drink selezionato!");
         }
     }
-
-
-    public void showInfo(Drink drink){
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(CocktailAssistantApp.class.getResource("drink.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = (Stage) listView.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
 }
