@@ -24,6 +24,8 @@ public class DrinkController {
     private Label alcoholicLabel;
     @FXML
     private Label descLabel;
+    @FXML
+    private Label ingredientsLabel;
 
     @FXML
     public void showInfo(Drink drink) {
@@ -39,6 +41,7 @@ public class DrinkController {
             alcoholicLabel.setText("Alcolico: No");
         }
 
+        ingredientsLabel.setText("Ingredienti:\n" + drink.getIngredients());
         image.setImage(new Image(drink.getImageURL()));
         descLabel.setText(drink.getInstructions());
 
