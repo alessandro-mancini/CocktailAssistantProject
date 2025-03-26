@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,6 +26,8 @@ public class ListController {
     private ListView listView;
     @FXML
     private TextField field;
+    @FXML
+    private ImageView searchImage;
     private ArrayList<Drink> drinks = new ArrayList<Drink>();
 
     @FXML
@@ -107,7 +110,7 @@ public class ListController {
         String letter = pressedButton.getText();
 
         drinks = DrinkSerializator.serializeDrinks(sendRequest("search", "f", letter));
-        Platform.runLater(() -> viewDrinks(drinks));
+        viewDrinks(drinks);
 
 
     }

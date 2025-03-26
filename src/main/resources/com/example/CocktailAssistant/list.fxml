@@ -3,15 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.CocktailAssistant.ListController">
 
    <ListView fx:id="listView" layoutX="209.0" layoutY="48.0" onMouseClicked="#chooseDrink" prefHeight="320.0" prefWidth="391.0" />
    <TextField fx:id="field" layoutX="437.0" layoutY="14.0" onAction="#updateList" promptText="Cerca Drink" />
-   <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Random" />
-   <Button fx:id="homeButton" layoutX="91.0" layoutY="14.0" mnemonicParsing="false" text="Categories" />
-   <Button layoutX="180.0" layoutY="14.0" mnemonicParsing="false" text="Filter" />
-   <ImageView fitHeight="27.0" fitWidth="24.0" layoutX="403.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+   <Button fx:id="backButton" layoutX="12.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="RANDOM">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font></Button>
 
 
    <ScrollPane fx:id="chatArea" layoutX="1.0" layoutY="48.0" prefHeight="295.0" prefWidth="209.0">
@@ -24,34 +25,33 @@
 
    <ScrollPane fitToWidth="true" hbarPolicy="ALWAYS" layoutY="368.0" prefHeight="27.0" prefWidth="600.0">
       <HBox layoutX="-1.0" layoutY="373.0" prefHeight="38.0" prefWidth="657.0">
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="A" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="B" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="C" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="D" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="E" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="F" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="G" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="H" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="I" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="J" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="K" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="L" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="M" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="N" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="O" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="P" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Q" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="R" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="S" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="T" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="U" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="V" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="W" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="X" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Y" wrapText="true" />
-         <Button onMouseClicked="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Z" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="A" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="B" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="C" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="D" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="E" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="F" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="G" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="H" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="I" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="J" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="K" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="L" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="M" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="N" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="O" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="P" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Q" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="R" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="S" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="T" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="V" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="W" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Y" wrapText="true" />
+         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Z" wrapText="true" />
       </HBox>
    </ScrollPane>
+   <ImageView fx:id="searchImage" fitHeight="30.0" fitWidth="30.0" layoutX="405.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
 
 
 </AnchorPane>
