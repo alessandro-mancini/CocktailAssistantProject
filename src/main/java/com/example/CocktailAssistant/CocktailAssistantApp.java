@@ -17,7 +17,7 @@ public class CocktailAssistantApp extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.getIcons().add(new Image("https://c1.tablecdn.com/pa/the-cocktail-db-api.jpg"));
+        stage.getIcons().add(new Image(getClass().getResource("/img/Icon.png").toExternalForm(),500,500,true,true));
         stage.setTitle("Cocktail Assistant");
         stage.show();
 

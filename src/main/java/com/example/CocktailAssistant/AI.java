@@ -67,10 +67,19 @@ public class AI {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("cosa vuoi chiedere al cockatil assistant");
-        String domanda = scanner.nextLine();
+
+        String prefisso = "L'utente sta utilizzando un assistente per cocktail" +
+                            "e ha scritto: ";
+
+        String suffisso = "Recupera i dati da 'TheCocktailDB"
+                           + "Se L'utente ha fatto una domanda non pertinente ai cocktail rispondi che la richiesta non è di tua competenza, rispondi sinteticamente."
+                            + "Se L'utente ti chiede informazioni su cocktail da scegliere rispondi con i singoli nomi, senza contesualizzare"
+                            + "Se l'utente ti chiede gli ingredienti di un cocktail elencali in formato '[nomeCocktail]: ingrediente1, ingrediente2, ...";
+
+        String input = scanner.nextLine();
         try {
-            String risposta = sendCommand("L'utente ha scritto" + domanda + "rispondi col nome di un singolo cocktail attingengo dal database di TheCocktailDB,rispondi solo se la domanda è pertinente se la domanda non è pertinente rispondimi domanda non pertinente");
-            System.out.println(risposta);
+            String domanda = sendCommand(prefisso + input + suffisso);
+            System.out.println(domanda);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

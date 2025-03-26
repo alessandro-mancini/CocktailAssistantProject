@@ -90,7 +90,7 @@ public class ListController {
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.setTitle("Dettagli " + drink.getName());
-                stage.getIcons().add(new Image("https://c1.tablecdn.com/pa/the-cocktail-db-api.jpg"));
+                stage.getIcons().add(new Image(getClass().getResource("/img/Icon.png").toExternalForm(),500,500,true,true));
 
                 // Mostra la nuova finestra
                 stage.show();
