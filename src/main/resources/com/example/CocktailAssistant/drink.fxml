@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #ff9800, #ff5722);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.CocktailAssistant.DrinkController">
    <!-- Immagine del drink con effetto rotondo e ombra -->
-   <ImageView fx:id="image" fitHeight="180.0" fitWidth="180.0" layoutX="55.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="image" fitHeight="200.0" fitWidth="200.0" layoutX="34.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
       <effect>
          <DropShadow color="black" />
       </effect>
@@ -22,14 +22,14 @@
    </Label>
 
    <!-- Categoria -->
-   <Label fx:id="categoryLabel" alignment="CENTER" layoutX="20.0" layoutY="305.0" prefHeight="20.0" prefWidth="250.0" style="-fx-text-fill: #FFEB3B; -fx-font-size: 16px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Categoria" wrapText="true" />
+   <Label fx:id="categoryLabel" alignment="CENTER" layoutX="20.0" layoutY="298.0" prefHeight="40.0" prefWidth="228.0" style="-fx-font-size: 16px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Categoria" textFill="#ffeb3b" wrapText="true" />
 
    <!-- Alcolico o analcolico -->
-   <Label fx:id="alcoholicLabel" alignment="CENTER" layoutX="20.0" layoutY="340.0" prefHeight="20.0" prefWidth="250.0" style="-fx-text-fill: #FFEB3B; -fx-font-size: 16px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Alcolico" />
+   <Label fx:id="alcoholicLabel" alignment="CENTER" layoutX="20.0" layoutY="346.0" prefHeight="20.0" prefWidth="228.0" style=" -fx-font-size: 16px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Alcolico" textFill="#ffeb3b" />
 
    <!-- Descrizione -->
-   <Label fx:id="descLabel" alignment="CENTER" layoutX="287.0" layoutY="230.0" prefHeight="150.0" prefWidth="280.0" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-family: 'Arial';" text="Descrizione" wrapText="true" />
+   <Label fx:id="descLabel" alignment="CENTER_RIGHT" layoutX="255.0" layoutY="221.0" prefHeight="166.0" prefWidth="314.0" style=" -fx-font-size: 12px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Descrizione" textFill="#ffeb3b" wrapText="true" />
 
    <!-- Ingredienti -->
-   <Label fx:id="ingredientsLabel" alignment="CENTER" layoutX="287.0" layoutY="85.0" prefHeight="160.0" prefWidth="280.0" style="-fx-text-fill: #FFEB3B; -fx-font-size: 16px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Ingredienti" />
+   <Label fx:id="ingredientsLabel" layoutX="293.0" layoutY="75.0" prefHeight="137.0" prefWidth="280.0" style=" -fx-font-size: 13px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Ingredienti" textFill="#ffeb3b" />
 </AnchorPane>

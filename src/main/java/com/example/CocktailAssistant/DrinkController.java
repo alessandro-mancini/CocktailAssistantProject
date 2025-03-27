@@ -46,7 +46,7 @@ public class DrinkController {
         // inserisce i dati testuali del drink nelle label
         titleLabel.setText(drink.getName());
 
-        categoryLabel.setText("Categoria: " + drink.getCategory());
+        categoryLabel.setText(drink.getCategory());
 
         if(drink.isAlcoholic()){
             alcoholicLabel.setText("Alcolico: Sì");

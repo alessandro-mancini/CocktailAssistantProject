@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.CocktailAssistant.ListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="605.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.CocktailAssistant.ListController">
 
-   <ListView fx:id="listView" layoutX="209.0" layoutY="48.0" onMouseClicked="#chooseDrink" prefHeight="320.0" prefWidth="391.0" />
+   <ListView fx:id="listView" layoutX="207.0" layoutY="48.0" onMouseClicked="#chooseDrink" prefHeight="324.0" prefWidth="398.0" />
    <TextField fx:id="searchField" layoutX="437.0" layoutY="14.0" onAction="#updateList" promptText="Cerca Drink" />
    <Button fx:id="randomButton" layoutX="12.0" layoutY="10.0" mnemonicParsing="false" onAction="#randomDrink" prefHeight="31.0" prefWidth="47.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
       <font>
@@ -15,44 +15,42 @@
       </font></Button>
 
 
-   <ScrollPane fx:id="chatArea" layoutX="1.0" layoutY="48.0" prefHeight="295.0" prefWidth="209.0">
-      <TextArea fx:id="chatTextArea" editable="false" prefHeight="311.0" prefWidth="192.0" wrapText="true" />
+   <ScrollPane fx:id="chatArea" layoutX="1.0" layoutY="48.0" style="-fx-background-color: orange;">
+      <TextArea fx:id="chatTextArea" editable="false" prefHeight="323.0" prefWidth="207.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #EEEEEE; -fx-border-width: 2;" wrapText="true" />
    </ScrollPane>
 
 
-   <TextField fx:id="chatField" layoutX="1.0" layoutY="343.0" onAction="#chatWithAI" prefHeight="25.0" prefWidth="209.0" promptText="Chatta con Gemini AI..." />
+   <TextField fx:id="chatField" layoutX="5.0" layoutY="344.0" onAction="#chatWithAI" prefHeight="25.0" prefWidth="200.0" promptText="Chatta con Gemini AI..." style="-fx-background-radius: 15;    -fx-border-radius: 15;" />
 
 
-   <ScrollPane fitToWidth="true" hbarPolicy="ALWAYS" layoutY="368.0" prefHeight="27.0" prefWidth="600.0">
-      <HBox layoutX="-1.0" layoutY="373.0" prefHeight="38.0" prefWidth="657.0">
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="A" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="B" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="C" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="D" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="E" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="F" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="G" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="H" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="I" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="J" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="K" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="L" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="M" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="N" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="O" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="P" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Q" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="R" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="S" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="T" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="V" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="W" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Y" wrapText="true" />
-         <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Z" wrapText="true" />
-      </HBox>
-   </ScrollPane>
-   <ImageView fx:id="searchImage" fitHeight="20.0" fitWidth="20.0" layoutX="405.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
-   <ImageView fx:id="randomImage" fitHeight="20.0" fitWidth="30.0" layoutX="12.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+   <HBox layoutX="-1.0" layoutY="373.0" prefHeight="27.0" prefWidth="605.0">
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="A" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="B" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="C" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="D" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="E" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="F" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="G" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="H" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="I" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="J" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="K" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="L" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="M" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="N" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="O" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="P" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Q" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="R" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="S" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="T" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="V" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="W" wrapText="true" />
+      <Button onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Y" wrapText="true" />
+      <Button alignment="CENTER" onAction="#filterByInitial" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Z" wrapText="true" />
+   </HBox>
+   <ImageView fx:id="searchImage" fitHeight="23.0" fitWidth="23.0" layoutX="411.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="randomImage" fitHeight="18.0" fitWidth="25.0" layoutX="12.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
 
 
 </AnchorPane>

@@ -34,12 +34,12 @@ public class AI {
 
     private static String composeJsonBody(String input) {
         String regole = ".\nSegui le seguenti regole per rispondere:"
-                + "\n- Recupera i dati da 'TheCocktailDB e sii coerente a questo DB per la formulazione di risposte"
+                + "\n- Recupera i dati da 'TheCocktailDB' per qualsiasi richiesta ti venga fatta"
                 + "\n- Se la domanda/richiesta non è di tua competenza (ossia inerente a TheCocktailDB), rispondi dicendo che la richiesta non è di tua competenza"
-                + "\n- Se L'utente ti chiede un consiglio su uno o più cocktail rispondi sinteticamente"
-                + "\n- Se l'utente ti richiede 'n' cocktail tu rispondi con 'n' singoli nomi di cocktail"
-                + "\n Se l'utente ti chiede gli ingredienti di un cocktail elencali in formato '[nomeCocktail]: ingrediente1, ingrediente2, ...";
-
+                + "\n- Se L'utente ti chiede un consiglio su uno o più cocktail rispondi sinteticamente usando solo il/i singolo/i nome/i del/i cocktail (se il cocktail è presente su TheCocktailDB)"
+                + "\n- Se l'utente ti richiede 'n' cocktail tu rispondi con 'n' singoli nomi di cocktail (se il cocktail è presente su TheCocktailDB)"
+                + "\n Se l'utente ti chiede gli ingredienti di un cocktail (TheCocktailDB) elencali in formato '[nomeCocktail]: ingrediente1, ingrediente2, ..."
+                + "\n- Se un Cocktail non è presente su thecocktaildb, rispondi che il cocktail non è presente nel database";
         String command = input + regole;
 
 
