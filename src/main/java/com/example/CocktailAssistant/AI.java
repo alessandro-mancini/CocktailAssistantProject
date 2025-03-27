@@ -1,9 +1,7 @@
 package com.example.CocktailAssistant;
 
 import java.io.IOException;
-import java.util.Scanner;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -15,19 +13,12 @@ public class AI {
     private static final String API_KEY = "AIzaSyBhzALSp-iTMWQUgtM1moiNvRfAmLs_70I";
     private static final String API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=";
 
-    public static String sendCommand(String command) throws IOException {
+    public static String sendCommand(String input) throws IOException {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
 
-        // Build the JSON request body
-        String jsonBody = "{\n" +
-                "  \"contents\": [{\n" +
-                "    \"parts\": [\n" +
-                "      {\"text\": \"" + command + "\"}\n" +
-                "    ]\n" +
-                "  }]\n" +
-                "}";
+        String jsonBody = composeJsonBody(input);
 
         RequestBody body = RequestBody.create(mediaType, jsonBody);
 
@@ -39,6 +30,29 @@ public class AI {
 
         Response response = client.newCall(request).execute();
         return handleResponse(response);
+    }
+
+    private static String composeJsonBody(String input) {
+        String regole = ".\nSegui le seguenti regole per rispondere:"
+                + "\n- Recupera i dati da 'TheCocktailDB e sii coerente a questo DB per la formulazione di risposte"
+                + "\n- Se la domanda/richiesta non è di tua competenza (ossia inerente a TheCocktailDB), rispondi dicendo che la richiesta non è di tua competenza"
+                + "\n- Se L'utente ti chiede un consiglio su uno o più cocktail rispondi sinteticamente"
+                + "\n- Se l'utente ti richiede 'n' cocktail tu rispondi con 'n' singoli nomi di cocktail"
+                + "\n Se l'utente ti chiede gli ingredienti di un cocktail elencali in formato '[nomeCocktail]: ingrediente1, ingrediente2, ...";
+
+        String command = input + regole;
+
+
+        // Build the JSON request body
+        String jsonBody = "{\n" +
+                "  \"contents\": [{\n" +
+                "    \"parts\": [\n" +
+                "      {\"text\": \"" + command + "\"}\n" +
+                "    ]\n" +
+                "  }]\n" +
+                "}";
+
+        return jsonBody;
     }
 
 
@@ -63,27 +77,6 @@ public class AI {
         } else {
             return "Error: " + response.code() + " " + response.message();
         }
-    }
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("cosa vuoi chiedere al cockatil assistant");
-
-        String prefisso = "L'utente sta utilizzando un assistente per cocktail" +
-                            "e ha scritto: ";
-
-        String suffisso = "Recupera i dati da 'TheCocktailDB"
-                           + "Se L'utente ha fatto una domanda non pertinente ai cocktail rispondi che la richiesta non è di tua competenza, rispondi sinteticamente."
-                            + "Se L'utente ti chiede informazioni su cocktail da scegliere rispondi con i singoli nomi, senza contesualizzare"
-                            + "Se l'utente ti chiede gli ingredienti di un cocktail elencali in formato '[nomeCocktail]: ingrediente1, ingrediente2, ...";
-
-        String input = scanner.nextLine();
-        try {
-            String domanda = sendCommand(prefisso + input + suffisso);
-            System.out.println(domanda);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
 }

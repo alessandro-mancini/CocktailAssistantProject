@@ -9,11 +9,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,13 +26,18 @@ public class ListController {
     @FXML
     private ListView listView;
     @FXML
-    private TextField field;
+    private TextArea chatTextArea;
+    @FXML
+    private TextField chatField;
+    @FXML
+    private TextField searchField;
     @FXML
     private ImageView searchImage;
     @FXML
     private Button randomButton;
     @FXML
     private ImageView randomImage;
+
 
     private ArrayList<Drink> drinks = new ArrayList<Drink>();
 
@@ -63,7 +68,7 @@ public class ListController {
 
     @FXML
     public void updateList(){
-        String name = field.getText();
+        String name = searchField.getText();
         if(!name.equals("")){
             drinks = DrinkSerializator.serializeDrinks(sendRequest("search","s",name));
             viewDrinks(drinks);
@@ -153,6 +158,24 @@ public class ListController {
 
         drinks = DrinkSerializator.serializeDrinks(sendRequest("search", "f", letter));
         viewDrinks(drinks);
+
+
+    }
+
+    public void chatWithAI(){
+        try{
+            String chatContent = chatTextArea.getText();
+            String input = chatField.getText();
+            chatTextArea.appendText("Utente:\n" + input + "\n\n");
+            chatField.setText("");
+
+            String response = AI.sendCommand(input);
+
+            chatTextArea.appendText("Gemini:\n" + response + "\n");
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 
     }

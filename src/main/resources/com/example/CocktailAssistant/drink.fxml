@@ -1,40 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.CocktailAssistant.DrinkController">
-   <children>
-      <!-- Immagine del drink con effetto rotondo -->
-      <ImageView fx:id="image" fitHeight="180.0" fitWidth="180.0" layoutX="36.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
-      </ImageView>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #ff9800, #ff5722);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.CocktailAssistant.DrinkController">
+   <!-- Immagine del drink con effetto rotondo e ombra -->
+   <ImageView fx:id="image" fitHeight="180.0" fitWidth="180.0" layoutX="55.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+      <effect>
+         <DropShadow color="black" />
+      </effect>
+   </ImageView>
 
-      <!-- Titolo del drink -->
-      <Label fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="30.0" prefHeight="33.0" prefWidth="399.0" text="TITOLO" wrapText="true">
-         <font>
-            <Font name="Calibri Bold" size="30.0" />
-         </font>
-      </Label>
+   <!-- Titolo del drink -->
+   <Label fx:id="titleLabel" alignment="CENTER" layoutX="100.0" layoutY="20.0" prefHeight="40.0" prefWidth="400.0" style="-fx-text-fill: white;" text="TITOLO" wrapText="true">
+      <font>
+         <Font name="Georgia Bold" size="34.0" />
+      </font>
+   </Label>
 
-      <!-- Categoria -->
-      <Label fx:id="categoryLabel" alignment="CENTER" layoutX="4.0" layoutY="85.0" prefHeight="18.0" prefWidth="243.0" text="Categoria" wrapText="true">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
+   <!-- Categoria -->
+   <Label fx:id="categoryLabel" alignment="CENTER" layoutX="20.0" layoutY="305.0" prefHeight="20.0" prefWidth="250.0" style="-fx-text-fill: #FFEB3B; -fx-font-size: 16px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Categoria" wrapText="true" />
 
-      <!-- Alcolico o analcolico -->
-      <Label fx:id="alcoholicLabel" alignment="CENTER" layoutX="4.0" layoutY="334.0" prefHeight="18.0" prefWidth="243.0" text="Alcolico">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
+   <!-- Alcolico o analcolico -->
+   <Label fx:id="alcoholicLabel" alignment="CENTER" layoutX="20.0" layoutY="340.0" prefHeight="20.0" prefWidth="250.0" style="-fx-text-fill: #FFEB3B; -fx-font-size: 16px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Alcolico" />
 
-      <!-- Descrizione -->
-      <Label fx:id="descLabel" alignment="CENTER" layoutX="299.0" layoutY="224.0" prefHeight="158.0" prefWidth="273.0" text="Descrizione" wrapText="true" />
-      <Label fx:id="ingredientsLabel" layoutX="346.0" layoutY="85.0" prefHeight="158.0" prefWidth="180.0" text="Ingredienti" />
-   </children>
+   <!-- Descrizione -->
+   <Label fx:id="descLabel" alignment="CENTER" layoutX="287.0" layoutY="230.0" prefHeight="150.0" prefWidth="280.0" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-family: 'Arial';" text="Descrizione" wrapText="true" />
+
+   <!-- Ingredienti -->
+   <Label fx:id="ingredientsLabel" alignment="CENTER" layoutX="287.0" layoutY="85.0" prefHeight="160.0" prefWidth="280.0" style="-fx-text-fill: #FFEB3B; -fx-font-size: 16px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Ingredienti" />
 </AnchorPane>
