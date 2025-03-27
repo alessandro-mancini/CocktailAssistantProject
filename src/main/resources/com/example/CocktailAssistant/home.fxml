@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.CocktailAssistant.HomeController">
-    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="37.0" prefHeight="64.0" prefWidth="562.0" text="Benvenuto su Cocktail Assistant!" textFill="WHITE" wrapText="true">
-        <font>
-            <Font name="Georgia Bold" size="33.0" />
-        </font>
-    </Label>
-    <Label alignment="CENTER" layoutX="185.0" layoutY="91.0" prefHeight="27.0" prefWidth="231.0" text="Clicca qua sotto per iniziare!" textFill="#ffeb3b" wrapText="true">
-      <font>
-         <Font name="Calibri" size="18.0" />
-      </font></Label>
-   <Button layoutX="201.0" layoutY="155.0" mnemonicParsing="false" onAction="#start" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
-   <ImageView fx:id="startImage" fitHeight="200.0" fitWidth="200.0" layoutX="200.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true" />
-   <ImageView fx:id="leftImage" fitHeight="200.0" fitWidth="80.0" layoutX="54.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" />
-   <ImageView fx:id="rightImage" fitHeight="220.0" fitWidth="190.0" layoutX="416.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true" />
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.CocktailAssistant.HomeController">
+   <Button layoutX="242.0" layoutY="157.0" mnemonicParsing="false" onAction="#start" prefHeight="180.0" prefWidth="306.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
 </AnchorPane>

@@ -166,12 +166,15 @@ public class ListController {
         try{
             String chatContent = chatTextArea.getText();
             String input = chatField.getText();
-            chatTextArea.appendText("Utente:\n" + input + "\n\n");
-            chatField.setText("");
 
-            String response = AI.sendCommand(input);
+            if(!input.isEmpty()){
+                chatTextArea.appendText("Utente:\n" + input + "\n\n");
+                chatField.setText("");
 
-            chatTextArea.appendText("Gemini:\n" + response + "\n");
+                String response = AI.sendCommand(input);
+
+                chatTextArea.appendText("Gemini:\n" + response + "\n");
+            }
 
         }catch (Exception e){
             e.printStackTrace();

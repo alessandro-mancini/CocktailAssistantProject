@@ -4,32 +4,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
-import java.util.Objects;
 
 public class HomeController {
 
     @FXML
-    private ImageView startImage;
-    @FXML
-    private ImageView leftImage;
-    @FXML
-    private ImageView rightImage;
+    private AnchorPane pane;
 
     @FXML
     private void initialize(){
-        startImage.setMouseTransparent(true);
-        startImage.setImage(new Image(Objects.requireNonNull(getClass().getResource("/img/Start.png")).toExternalForm(),500,500,true,true));
-        leftImage.setImage(new Image(Objects.requireNonNull(getClass().getResource("/img/Ichnusa.png")).toExternalForm(),163,500,true,true));
-        rightImage.setImage(new Image(Objects.requireNonNull(getClass().getResource("/img/Gin.png")).toExternalForm(),163,500,true,true));
+        pane.setBackground(uploadBackground());
     }
 
     @FXML
     private void start(){
         try{
-            Stage stage = (Stage) startImage.getScene().getWindow();
+            Stage stage = (Stage) pane.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(CocktailAssistantApp.class.getResource("list.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
@@ -39,6 +30,20 @@ public class HomeController {
         }catch (Exception e){
             throw new RuntimeException();
         }
+    }
+
+    private Background uploadBackground(){
+        Image backgroundImage = new Image(getClass().getResource("/img/Sfondo.png").toExternalForm()); // Percorso locale
+
+        // Crea un oggetto BackgroundImage
+        BackgroundImage background = new BackgroundImage(
+                backgroundImage,
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(100, 100, true, true, true, false)
+        );
+
+        return new Background(background);
     }
 
 }
