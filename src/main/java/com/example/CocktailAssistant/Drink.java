@@ -2,9 +2,7 @@ package com.example.CocktailAssistant;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-
-public class Drink {
+public class Drink { // classe per la deserializzazione dei cocktail dal JSON, i warning sono normali
     @SerializedName("idDrink")
     private String idDrink;
 
@@ -128,7 +126,7 @@ public class Drink {
         return strDrink;
     }
 
-    public String getIngredients() {
+    public String getIngredients() { // stampa degli ingredienti e le quantità di ognuno, in quando estrazione avvenuta singolarmente
         StringBuilder ingredients = new StringBuilder();
 
         // Append ingredient and measure pairs to the string, with "- " prefix

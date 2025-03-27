@@ -3,7 +3,7 @@ package com.example.CocktailAssistant;
 import com.google.gson.*;
 import java.util.ArrayList;
 
-public class DrinkSerializator {
+public class DrinkSerializator { // un serializator che in realtà deserializza il JSON in Arraylist di Drink
 
     public static ArrayList<Drink> serializeDrinks(String jsonResponse) {
         ArrayList<Drink> drinksList = new ArrayList<>();
@@ -20,7 +20,7 @@ public class DrinkSerializator {
             }
 
         }catch (Exception e) {
-            throw new RuntimeException(); // con e.printStackTrace mi dava warning
+            throw new RuntimeException(e); // con e.printStackTrace mi dava warning
         }
 
 

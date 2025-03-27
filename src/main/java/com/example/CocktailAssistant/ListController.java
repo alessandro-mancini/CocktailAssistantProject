@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static com.example.CocktailAssistant.JSonReader.sendRequest;
 
@@ -24,7 +25,7 @@ public class ListController {
 
 
     @FXML
-    private ListView listView;
+    private ListView<Drink> listView;
     @FXML
     private TextArea chatTextArea;
     @FXML
@@ -34,19 +35,17 @@ public class ListController {
     @FXML
     private ImageView searchImage;
     @FXML
-    private Button randomButton;
-    @FXML
     private ImageView randomImage;
 
 
-    private ArrayList<Drink> drinks = new ArrayList<Drink>();
+    private ArrayList<Drink> drinks = new ArrayList<>();
 
     @FXML
     public void initialize(){
 
-        randomImage.setImage(new Image(getClass().getResource("/img/Random.png").toExternalForm(),240,200,true,true));
+        randomImage.setImage(new Image(Objects.requireNonNull(getClass().getResource("/img/Random.png")).toExternalForm(),240,200,true,true));
         randomImage.setMouseTransparent(true);
-        searchImage.setImage(new Image(getClass().getResource("/img/Search.png").toExternalForm(),360,360,true,true));
+        searchImage.setImage(new Image(Objects.requireNonNull(getClass().getResource("/img/Search.png")).toExternalForm(),360,360,true,true));
 
         for(int i = 0; i < 26; i++) {
 
@@ -56,12 +55,10 @@ public class ListController {
                 String letter = String.valueOf((char) (index + 97));
                 ArrayList<Drink> tempList = DrinkSerializator.serializeDrinks(sendRequest("search", "f", letter));
 
-                if (tempList != null) {
-                    Platform.runLater(() -> {
-                        drinks.addAll(tempList);
-                        viewDrinks(drinks);
-                    });
-                }
+                Platform.runLater(() -> {
+                    drinks.addAll(tempList);
+                    viewDrinks(drinks);
+                });
             }).start();
         }
     }
@@ -69,7 +66,7 @@ public class ListController {
     @FXML
     public void updateList(){
         String name = searchField.getText();
-        if(!name.equals("")){
+        if(!name.isEmpty()){
             drinks = DrinkSerializator.serializeDrinks(sendRequest("search","s",name));
             viewDrinks(drinks);
         }else{
@@ -81,9 +78,6 @@ public class ListController {
         if(drinks != null){
             ObservableList<Drink> items = FXCollections.observableArrayList(drinks);
             listView.setItems(items);
-        }else{
-            ObservableList<String> items = FXCollections.observableArrayList("Nessun Risultato!");
-            listView.setItems(items);
         }
 
     }
@@ -91,7 +85,7 @@ public class ListController {
     @FXML
     private void chooseDrink() {
         // Ottieni l'oggetto Drink selezionato
-        Drink drink = (Drink) listView.getSelectionModel().getSelectedItem();
+        Drink drink = listView.getSelectionModel().getSelectedItem();
 
         if (drink != null) {
             try {
@@ -109,20 +103,19 @@ public class ListController {
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.setTitle("Dettagli " + drink.getName());
-                stage.getIcons().add(new Image(getClass().getResource("/img/Icon.png").toExternalForm(),500,500,true,true));
+                stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource("/img/Icon.png")).toExternalForm(),500,500,true,true));
 
                 // Mostra la nuova finestra
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
                 throw new RuntimeException(e);
             }
         }
     }
 
-    public void randomDrink(ActionEvent event){
-        Drink drink = DrinkSerializator.serializeDrinks(sendRequest("random",null,null)).get(0);
+    public void randomDrink(){
+        Drink drink = DrinkSerializator.serializeDrinks(sendRequest("random",null,null)).getFirst();
 
         if (drink != null) {
             try {
@@ -140,13 +133,12 @@ public class ListController {
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.setTitle("Dettagli " + drink.getName());
-                stage.getIcons().add(new Image(getClass().getResource("/img/Icon.png").toExternalForm(),500,500,true,true));
+                stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource("/img/Icon.png")).toExternalForm(),500,500,true,true));
 
                 // Mostra la nuova finestra
                 stage.show();
 
             } catch (IOException e) {
-                e.printStackTrace();
                 throw new RuntimeException(e);
             }
         }
@@ -164,7 +156,6 @@ public class ListController {
 
     public void chatWithAI(){
         try{
-            String chatContent = chatTextArea.getText();
             String input = chatField.getText();
 
             if(!input.isEmpty()){
@@ -177,7 +168,7 @@ public class ListController {
             }
 
         }catch (Exception e){
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
 

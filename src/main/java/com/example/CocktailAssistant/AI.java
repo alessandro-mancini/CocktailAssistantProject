@@ -43,7 +43,8 @@ public class AI {
                 - Se L'utente ti chiede un consiglio su uno o più cocktail rispondi sinteticamente usando solo il/i singolo/i nome/i del/i cocktail (se il cocktail è presente su TheCocktailDB)
                 - Se l'utente ti richiede 'n' cocktail tu rispondi con 'n' singoli nomi di cocktail (se il cocktail è presente su TheCocktailDB)
                  Se l'utente ti chiede gli ingredienti di un cocktail (TheCocktailDB) elencali in formato '[nomeCocktail]: ingrediente1, ingrediente2, ...
-                - Se un Cocktail non è presente su thecocktaildb, rispondi che il cocktail non è presente nel database"""; // L'ha fatto IntelliJ mi dava warning
+                - Se un Cocktail non è presente su thecocktaildb, rispondi che il cocktail non è presente nel database
+                mi raccomando nomina sempre e solo cocktail contenuti su thecocktailDB"""; // Gemini non riusciva a capire che deve usare solo dati da TheCocktailDB
 
         String command = input + regole;
 
@@ -61,7 +62,7 @@ public class AI {
     }
 
 
-    private static String handleResponse(Response response) throws IOException {
+    private static String handleResponse(Response response) throws IOException { // si assicura della validità della risposta e in caso la restituisce
         if (response.isSuccessful()) {
             assert response.body() != null;
             String responseBody = response.body().string();

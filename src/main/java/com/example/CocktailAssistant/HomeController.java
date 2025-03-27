@@ -13,12 +13,12 @@ public class HomeController {
     private AnchorPane pane;
 
     @FXML
-    private void initialize(){
+    private void initialize(){ // imposta lo sfondo della home
         pane.setBackground(uploadBackground());
     }
 
     @FXML
-    private void start(){
+    private void start(){ // quando premo il bottone invisibile fa il redirect alla lista
         try{
             Stage stage = (Stage) pane.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(CocktailAssistantApp.class.getResource("list.fxml"));
@@ -28,11 +28,11 @@ public class HomeController {
 
             stage.show();
         }catch (Exception e){
-            throw new RuntimeException();
+            throw new RuntimeException(e);
         }
     }
 
-    private Background uploadBackground(){
+    private Background uploadBackground(){ // metodo per trasformare l'immagine in sfondo
         Image backgroundImage = new Image(getClass().getResource("/img/Sfondo.png").toExternalForm()); // Percorso locale
 
         // Crea un oggetto BackgroundImage

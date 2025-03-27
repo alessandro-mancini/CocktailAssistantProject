@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-public class DrinkController {
+public class DrinkController { // gestisce la schermata di visualizzazione del cocktail scelto/generato
 
 
     @FXML
