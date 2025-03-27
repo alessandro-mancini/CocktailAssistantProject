@@ -1,9 +1,6 @@
 package com.example.CocktailAssistant;
 
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class DrinkSerializator {
@@ -23,7 +20,7 @@ public class DrinkSerializator {
             }
 
         }catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(); // con e.printStackTrace mi dava warning
         }
 
 

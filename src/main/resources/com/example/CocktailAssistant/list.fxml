@@ -15,7 +15,7 @@
       </font></Button>
 
 
-   <ScrollPane fx:id="chatArea" layoutX="1.0" layoutY="48.0" style="-fx-background-color: orange;">
+   <ScrollPane layoutX="1.0" layoutY="48.0" style="-fx-background-color: orange;">
       <TextArea fx:id="chatTextArea" editable="false" prefHeight="323.0" prefWidth="207.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #EEEEEE; -fx-border-width: 2;" wrapText="true" />
    </ScrollPane>
 

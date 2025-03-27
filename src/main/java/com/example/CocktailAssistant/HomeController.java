@@ -1,13 +1,13 @@
 package com.example.CocktailAssistant;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import java.util.Objects;
 
 public class HomeController {
 
@@ -21,13 +21,13 @@ public class HomeController {
     @FXML
     private void initialize(){
         startImage.setMouseTransparent(true);
-        startImage.setImage(new Image(getClass().getResource("/img/Start.png").toExternalForm(),500,500,true,true));
-        leftImage.setImage(new Image(getClass().getResource("/img/Ichnusa.png").toExternalForm(),163,500,true,true));
-        rightImage.setImage(new Image(getClass().getResource("/img/Gin.png").toExternalForm(),163,500,true,true));
+        startImage.setImage(new Image(Objects.requireNonNull(getClass().getResource("/img/Start.png")).toExternalForm(),500,500,true,true));
+        leftImage.setImage(new Image(Objects.requireNonNull(getClass().getResource("/img/Ichnusa.png")).toExternalForm(),163,500,true,true));
+        rightImage.setImage(new Image(Objects.requireNonNull(getClass().getResource("/img/Gin.png")).toExternalForm(),163,500,true,true));
     }
 
     @FXML
-    private void start(ActionEvent event){
+    private void start(){
         try{
             Stage stage = (Stage) startImage.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(CocktailAssistantApp.class.getResource("list.fxml"));
@@ -37,7 +37,7 @@ public class HomeController {
 
             stage.show();
         }catch (Exception e){
-            e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 

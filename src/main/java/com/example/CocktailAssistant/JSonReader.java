@@ -43,7 +43,6 @@ public class JSonReader {
 
 
         try {
-            System.out.println(url.toString());
             Response response = client.newCall(request).execute();
             assert response.body() != null;
             return response.body().string();
