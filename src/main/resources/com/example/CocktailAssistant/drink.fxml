@@ -22,14 +22,14 @@
    </Label>
 
    <!-- Categoria -->
-   <Label fx:id="categoryLabel" alignment="CENTER" layoutX="20.0" layoutY="298.0" prefHeight="40.0" prefWidth="228.0" style="-fx-font-size: 16px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Categoria" textFill="#ffeb3b" wrapText="true" />
+   <Label fx:id="categoryLabel" alignment="CENTER" layoutX="14.0" layoutY="298.0" prefHeight="40.0" prefWidth="200.0" style="-fx-font-size: 16px; -fx-font-family: 'Trebuchet MS'; -fx-font-weight: bold;" text="Categoria" textFill="#ffeb3b" wrapText="true" />
 
    <!-- Alcolico o analcolico -->
-   <Label fx:id="alcoholicLabel" alignment="CENTER" layoutX="20.0" layoutY="346.0" prefHeight="20.0" prefWidth="228.0" style=" -fx-font-size: 16px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Alcolico" textFill="#ffeb3b" />
+   <Label fx:id="alcoholicLabel" alignment="CENTER" layoutX="14.0" layoutY="345.0" prefHeight="34.0" prefWidth="200.0" style=" -fx-font-size: 16px; -fx-font-family: 'Trebuchet MS'; -fx-font-weight: bold;" text="Alcolico" textFill="#ffeb3b" />
 
    <!-- Descrizione -->
-   <Label fx:id="descLabel" alignment="CENTER_RIGHT" layoutX="255.0" layoutY="221.0" prefHeight="166.0" prefWidth="314.0" style=" -fx-font-size: 12px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Descrizione" textFill="#ffeb3b" wrapText="true" />
+   <Label fx:id="descLabel" alignment="CENTER" layoutX="270.0" layoutY="219.0" prefHeight="175.0" prefWidth="324.0" style=" -fx-font-size: 11px; -fx-font-family: 'Trebuchet MS'; -fx-font-weight: bold;" text="Descrizione" textFill="#ffeb3b" wrapText="true" />
 
    <!-- Ingredienti -->
-   <Label fx:id="ingredientsLabel" layoutX="293.0" layoutY="75.0" prefHeight="137.0" prefWidth="280.0" style=" -fx-font-size: 13px; -fx-font-family: 'Verdana'; -fx-font-weight: bold;" text="Ingredienti" textFill="#ffeb3b" />
+   <Label fx:id="ingredientsLabel" alignment="CENTER" layoutX="269.0" layoutY="94.0" prefHeight="125.0" prefWidth="324.0" style=" -fx-font-size: 13px; -fx-font-family: 'Trebuchet MS'; -fx-font-weight: bold;" text="Ingredienti" textFill="#ffeb3b" />
 </AnchorPane>

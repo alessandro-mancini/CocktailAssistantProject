@@ -36,15 +36,14 @@ public class AI {
 
         // Regole per 'filtraggio' risposta dell' IA
         String regole = """
-                .
-                Segui le seguenti regole per rispondere:
-                - Recupera i dati da 'TheCocktailDB' per qualsiasi richiesta ti venga fatta
-                - Se la domanda/richiesta non è di tua competenza (ossia inerente a TheCocktailDB), rispondi dicendo che la richiesta non è di tua competenza
-                - Se L'utente ti chiede un consiglio su uno o più cocktail rispondi sinteticamente usando solo il/i singolo/i nome/i del/i cocktail (se il cocktail è presente su TheCocktailDB)
-                - Se l'utente ti richiede 'n' cocktail tu rispondi con 'n' singoli nomi di cocktail (se il cocktail è presente su TheCocktailDB)
-                 Se l'utente ti chiede gli ingredienti di un cocktail (TheCocktailDB) elencali in formato '[nomeCocktail]: ingrediente1, ingrediente2, ...
-                - Se un Cocktail non è presente su thecocktaildb, rispondi che il cocktail non è presente nel database
-                mi raccomando nomina sempre e solo cocktail contenuti su thecocktailDB"""; // Gemini non riusciva a capire che deve usare solo dati da TheCocktailDB
+              \n.Regole per la Risposta:
+              Sii cortese con l'utente, ma cerca di essere sintetico
+              Se la richiesta non riguarda un cocktail/bevanda (alcolica o analcolica che sia), rispondi che non è di tua competenza.
+              Se richiesto un consiglio su un cocktail, rispondi solo con il nome cocktail, non aggiungere descrizioni se non richiesto.
+              Se richiesti 'n' cocktail, rispondi con 'n' nomi di cocktail.
+              Per gli ingredienti, rispondi con il formato: Cocktail: 'ingrediente1, ingrediente2, ...'.
+              Se un cocktail non è presente su TheCocktailDB, rispondi che non è nel database.
+              Esaudisci la richiesta solo con cocktail, bevande e/o ingredienti presi da TheCocktailDB."""; // Gemini non riusciva a capire che deve usare solo dati da TheCocktailDB
 
         String command = input + regole;
 

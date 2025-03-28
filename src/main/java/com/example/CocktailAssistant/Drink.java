@@ -129,114 +129,114 @@ public class Drink { // classe per la deserializzazione dei cocktail dal JSON, i
     public String getIngredients() { // stampa degli ingredienti e le quantità di ognuno, in quando estrazione avvenuta singolarmente
         StringBuilder ingredients = new StringBuilder();
 
-        // Append ingredient and measure pairs to the string, with "- " prefix
+
         if (ingredient1 != null && !ingredient1.isEmpty()) {
-            ingredients.append("- ").append(ingredient1);
+            ingredients.append(ingredient1);
             if (measure1 != null && !measure1.isEmpty()) {
-                ingredients.append(" (").append(measure1).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
-            ingredients.append("\n");
+
         }
         if (ingredient2 != null && !ingredient2.isEmpty()) {
-            ingredients.append("- ").append(ingredient2);
+            ingredients.append(" - ").append(ingredient2);
             if (measure2 != null && !measure2.isEmpty()) {
-                ingredients.append(" (").append(measure2).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
             ingredients.append("\n");
         }
         if (ingredient3 != null && !ingredient3.isEmpty()) {
-            ingredients.append("- ").append(ingredient3);
+            ingredients.append(ingredient3);
             if (measure3 != null && !measure3.isEmpty()) {
-                ingredients.append(" (").append(measure3).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
-            ingredients.append("\n");
+
         }
         if (ingredient4 != null && !ingredient4.isEmpty()) {
-            ingredients.append("- ").append(ingredient4);
+            ingredients.append(" - ").append(ingredient4);
             if (measure4 != null && !measure4.isEmpty()) {
-                ingredients.append(" (").append(measure4).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
             ingredients.append("\n");
         }
         if (ingredient5 != null && !ingredient5.isEmpty()) {
-            ingredients.append("- ").append(ingredient5);
+            ingredients.append(ingredient5);
             if (measure5 != null && !measure5.isEmpty()) {
-                ingredients.append(" (").append(measure5).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
-            ingredients.append("\n");
+
         }
         if (ingredient6 != null && !ingredient6.isEmpty()) {
-            ingredients.append("- ").append(ingredient6);
+            ingredients.append(" - ").append(ingredient6);
             if (measure6 != null && !measure6.isEmpty()) {
-                ingredients.append(" (").append(measure6).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
             ingredients.append("\n");
         }
         if (ingredient7 != null && !ingredient7.isEmpty()) {
-            ingredients.append("- ").append(ingredient7);
+            ingredients.append(ingredient7);
             if (measure7 != null && !measure7.isEmpty()) {
-                ingredients.append(" (").append(measure7).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
-            ingredients.append("\n");
+
         }
         if (ingredient8 != null && !ingredient8.isEmpty()) {
-            ingredients.append("- ").append(ingredient8);
+            ingredients.append(ingredient8);
             if (measure8 != null && !measure8.isEmpty()) {
-                ingredients.append(" (").append(measure8).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
             ingredients.append("\n");
         }
         if (ingredient9 != null && !ingredient9.isEmpty()) {
-            ingredients.append("- ").append(ingredient9);
+            ingredients.append(" - ").append(ingredient9);
             if (measure9 != null && !measure9.isEmpty()) {
-                ingredients.append(" (").append(measure9).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
-            ingredients.append("\n");
+
         }
         if (ingredient10 != null && !ingredient10.isEmpty()) {
-            ingredients.append("- ").append(ingredient10);
+            ingredients.append(ingredient10);
             if (measure10 != null && !measure10.isEmpty()) {
-                ingredients.append(" (").append(measure10).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
             ingredients.append("\n");
         }
         if (ingredient11 != null && !ingredient11.isEmpty()) {
-            ingredients.append("- ").append(ingredient11);
+            ingredients.append(" - ").append(ingredient11);
             if (measure11 != null && !measure11.isEmpty()) {
-                ingredients.append(" (").append(measure11).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
-            ingredients.append("\n");
+
         }
         if (ingredient12 != null && !ingredient12.isEmpty()) {
-            ingredients.append("- ").append(ingredient12);
+            ingredients.append(ingredient12);
             if (measure12 != null && !measure12.isEmpty()) {
-                ingredients.append(" (").append(measure12).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
             ingredients.append("\n");
         }
         if (ingredient13 != null && !ingredient13.isEmpty()) {
-            ingredients.append("- ").append(ingredient13);
+            ingredients.append(" - ").append(ingredient13);
             if (measure13 != null && !measure13.isEmpty()) {
-                ingredients.append(" (").append(measure13).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
-            ingredients.append("\n");
+
         }
         if (ingredient14 != null && !ingredient14.isEmpty()) {
-            ingredients.append("- ").append(ingredient14);
+            ingredients.append(ingredient14);
             if (measure14 != null && !measure14.isEmpty()) {
-                ingredients.append(" (").append(measure14).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
             ingredients.append("\n");
         }
         if (ingredient15 != null && !ingredient15.isEmpty()) {
-            ingredients.append("- ").append(ingredient15);
+            ingredients.append(" - ").append(ingredient15);
             if (measure15 != null && !measure15.isEmpty()) {
-                ingredients.append(" (").append(measure15).append(")");
+                ingredients.append(" [").append(measure1).append("]");
             }
-            ingredients.append("\n");
+
         }
 
-        return ingredients.toString().trim();  // Remove trailing newline if any
+        return ingredients.toString().trim();
     }
 
 }

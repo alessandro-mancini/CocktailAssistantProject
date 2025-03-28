@@ -156,6 +156,7 @@ public class ListController {
 
     public void chatWithAI(){
         try{
+            
             String input = chatField.getText();
 
             if(!input.isEmpty()){

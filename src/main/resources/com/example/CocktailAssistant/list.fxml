@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -8,20 +7,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.CocktailAssistant.ListController">
 
-   <ListView fx:id="listView" layoutX="207.0" layoutY="48.0" onMouseClicked="#chooseDrink" prefHeight="324.0" prefWidth="398.0" />
-   <TextField fx:id="searchField" layoutX="437.0" layoutY="14.0" onAction="#updateList" promptText="Cerca Drink" />
-   <Button fx:id="randomButton" layoutX="12.0" layoutY="10.0" mnemonicParsing="false" onAction="#randomDrink" prefHeight="31.0" prefWidth="47.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+   <ListView fx:id="listView" layoutX="207.0" layoutY="48.0" onMouseClicked="#chooseDrink" prefHeight="324.0" prefWidth="398.0" style="-fx-font-family: Trebuchet MS;" />
+   <TextField fx:id="searchField" layoutX="437.0" layoutY="14.0" onAction="#updateList" promptText="Cerca Drink">
+      <font>
+         <Font name="Trebuchet MS" size="12.0" />
+      </font></TextField>
+   <Button layoutX="12.0" layoutY="10.0" mnemonicParsing="false" onAction="#randomDrink" prefHeight="31.0" prefWidth="47.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
       <font>
          <Font name="System Bold" size="14.0" />
       </font></Button>
 
 
    <ScrollPane layoutX="1.0" layoutY="48.0">
-      <TextArea fx:id="chatTextArea" editable="false" prefHeight="323.0" prefWidth="207.0" wrapText="true" />
+      <TextArea fx:id="chatTextArea" editable="false" prefHeight="323.0" prefWidth="207.0" style="-fx-font-family: 'Trebuchet MS'; -fx-font-size: 12px;" wrapText="true" />
    </ScrollPane>
 
 
-   <TextField fx:id="chatField" layoutX="5.0" layoutY="344.0" onAction="#chatWithAI" prefHeight="25.0" prefWidth="200.0" promptText="Chatta con Gemini AI..." style="-fx-background-radius: 15; -fx-border-radius: 15;" />
+   <TextField fx:id="chatField" layoutX="5.0" layoutY="344.0" onAction="#chatWithAI" prefHeight="25.0" prefWidth="200.0" promptText="Chatta con Gemini AI..." style="-fx-background-radius: 15; -fx-border-radius: 15;">
+      <font>
+         <Font name="Trebuchet MS" size="12.0" />
+      </font>
+   </TextField>
 
 
    <HBox layoutX="-1.0" layoutY="373.0" prefHeight="27.0" prefWidth="605.0">
@@ -52,9 +58,5 @@
    </HBox>
    <ImageView fx:id="searchImage" fitHeight="23.0" fitWidth="23.0" layoutX="411.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
    <ImageView fx:id="randomImage" fitHeight="18.0" fitWidth="25.0" layoutX="12.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-
 
 </AnchorPane>
